@@ -8,12 +8,12 @@ export interface WordState {
   words?: WordModel[];
   word?: WordModel | null;
   loading: LoadingStates;
-  error?: string,
+  error?: string;
 }
 
 const initialState: WordState = {
   loading: LoadingStates.LOADING,
-  words: []
+  words: [],
 };
 
 export const wordSlice = createSlice({
@@ -21,9 +21,11 @@ export const wordSlice = createSlice({
   initialState,
   reducers: {
     getWordsByUserIdAction: (state, action: PayloadAction<string>) => {
-      console.log('getWordsByUserIdAction', action);
-      
-      return { ...state, userId: action.payload, loading: LoadingStates.LOADING };
+      return {
+        ...state,
+        userId: action.payload,
+        loading: LoadingStates.LOADING,
+      };
     },
     getWordsByUserIdSuccess: (state, action: PayloadAction<WordModel[]>) => {
       state.words = action.payload;
@@ -33,6 +35,29 @@ export const wordSlice = createSlice({
       state.error = action.payload;
       state.loading = LoadingStates.ERROR;
     },
+
+    postWordAction: (state, action: PayloadAction<WordModel>) => {
+      return { ...state, word: action.payload, loading: LoadingStates.LOADING };
+    },
+    postWordIdSuccess: (state) => {
+      return { ...state, loading: LoadingStates.LOADED };
+    },
+    postWordIdFailed: (state, action: PayloadAction<string>) => {
+      state.error = action.payload;
+      state.loading = LoadingStates.ERROR;
+    },
+
+    // putWordAction: (state) => {
+    //   return { ...state, loading: LoadingStates.LOADING };
+    // },
+    // putWordIdSuccess: (state, action: PayloadAction<WordModel>) => {
+    //   state.word = action.payload;
+    //   state.loading = LoadingStates.LOADED;
+    // },
+    // putWordIdFailed: (state, action: PayloadAction<string>) => {
+    //   state.error = action.payload;
+    //   state.loading = LoadingStates.ERROR;
+    // },
   },
 });
 

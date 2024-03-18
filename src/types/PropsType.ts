@@ -11,7 +11,9 @@ export type GridProps = {
   words: WordModel[] | null;
   key: number;
   title: string;
-  isLearned?: Boolean;
+  isLearned?: boolean;
+  loading: boolean;
+  postWord: any,
   t: TFunction;
 };
 
@@ -24,6 +26,7 @@ export type ActionsGridProps = {
 
 export type EditGridProps = {
   t: TFunction;
+  postWord: any;
 };
 
 export type WordProps = {

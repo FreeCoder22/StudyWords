@@ -12,7 +12,7 @@ function* getWordsByUserSaga(action: PayloadAction<string>) {
             wordActions.getWordsByUserIdSuccess(response)
         );
     } catch (err: any) {
-      yield put(wordActions.getWordsByUserIdFailed(err.response.statusText));
+      yield put(wordActions.getWordsByUserIdFailed(err.response));
     }
   }
 
@@ -23,12 +23,23 @@ function* getWordsByUserSaga(action: PayloadAction<string>) {
             wordActions.postWordIdSuccess(response.data)
         );
     } catch (err: any) {
-      yield put(wordActions.postWordIdFailed(err.response.statusText));
+      yield put(wordActions.postWordIdFailed(err.response));
     }
   }
   
-  
+  function* putWordSaga(action: PayloadAction<WordModel>) {
+    try {
+        let response: AxiosResponse = yield call(Words.putWord, action.payload);
+        yield put(
+            wordActions.putWordIdSuccess(response.data)
+        );
+    } catch (err: any) {
+      yield put(wordActions.putWordIdFailed(err.response));
+    }
+  }
+
   export default function* wordSaga() {
     yield takeLatest(wordActions.getWordsByUserIdAction.type, getWordsByUserSaga);
     yield takeLatest(wordActions.postWordAction.type, postWordSaga);
+    yield takeLatest(wordActions.putWordAction.type, putWordSaga);
   }

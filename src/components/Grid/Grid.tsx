@@ -14,39 +14,8 @@ import EditToolBar from "./EditToolBar";
 import { GridProps } from "../../types/PropsType";
 import { WordModel } from "../../models/WordModel";
 
-function Grid({ words,t, key, title, postWord, loading, isLearned = false }: GridProps) {
-  // const [loading, setLoading] = useState(false);
+function Grid({ words,t, key, title, postWord, putWord, loading, isLearned = false }: GridProps) {
   const [rowModesModel, setRowModesModel] = useState<GridRowModesModel>({});
-
-  // useEffect(() => {
-  //   // if (!words) return;
-  //   // setWords(words);
-  // }, [words]);
-
-  // const processRowUpdate = async (newRow: WordModel) => {
-  //   setLoading(true);
-  //   // const updatedRow = await putWord(newRow);
-  //   // setWords(
-  //   //   words.map((row: wordModel) =>
-  //   //     row.id === newRow.id ? updatedRow.data : row
-  //   //   )
-  //   // );
-  //   setLoading(false);
-  //   return [];
-  // };
-
-  const handleRowModesModelChange = (newRowModesModel: GridRowModesModel) => {
-    setRowModesModel(newRowModesModel);
-  };
-
-  const handleRowEditStop: GridEventListener<"rowEditStop"> = (
-    params,
-    event
-  ) => {
-    if (params.reason === GridRowEditStopReasons.rowFocusOut) {
-      event.defaultMuiPrevented = true;
-    }
-  };
 
   const getWords = () =>
     words?.filter((word: WordModel) => word.isLearned === isLearned);
@@ -71,6 +40,8 @@ function Grid({ words,t, key, title, postWord, loading, isLearned = false }: Gri
       width: 100,
       cellClassName: "actions",
       getActions: ({ id }) => {
+        console.log("id", id);
+        
         return [
           <ActionsGrid
             setRowModesModel={setRowModesModel}
@@ -95,9 +66,7 @@ function Grid({ words,t, key, title, postWord, loading, isLearned = false }: Gri
         }}
         editMode="row"
         rowModesModel={rowModesModel}
-        onRowModesModelChange={handleRowModesModelChange}
-        onRowEditStop={handleRowEditStop}
-        // processRowUpdate={processRowUpdate}
+        processRowUpdate={(value) => putWord(value)}
         onProcessRowUpdateError={(error) => console.error(error)}
         loading={loading}
       />

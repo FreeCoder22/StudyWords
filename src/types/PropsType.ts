@@ -14,6 +14,7 @@ export type GridProps = {
   isLearned?: boolean;
   loading: boolean;
   postWord: any,
+  putWord: any,
   t: TFunction;
 };
 

@@ -5,7 +5,7 @@ import LoadingStates from "../../utils/LoadingStates";
 import { RootState } from "../../utils/store";
 
 export interface WordState {
-  words?: WordModel[];
+  words: WordModel[];
   word?: WordModel | null;
   loading: LoadingStates;
   error?: string;
@@ -37,27 +37,28 @@ export const wordSlice = createSlice({
     },
 
     postWordAction: (state, action: PayloadAction<WordModel>) => {
-      return { ...state, word: action.payload, loading: LoadingStates.LOADING };
+      return { ...state, loading: LoadingStates.LOADING };
     },
-    postWordIdSuccess: (state) => {
-      return { ...state, loading: LoadingStates.LOADED };
+    postWordIdSuccess: (state, action: PayloadAction<WordModel>) => {
+       state.words.push(action.payload)
+       state.loading = LoadingStates.LOADED 
     },
     postWordIdFailed: (state, action: PayloadAction<string>) => {
       state.error = action.payload;
       state.loading = LoadingStates.ERROR;
     },
 
-    // putWordAction: (state) => {
-    //   return { ...state, loading: LoadingStates.LOADING };
-    // },
-    // putWordIdSuccess: (state, action: PayloadAction<WordModel>) => {
-    //   state.word = action.payload;
-    //   state.loading = LoadingStates.LOADED;
-    // },
-    // putWordIdFailed: (state, action: PayloadAction<string>) => {
-    //   state.error = action.payload;
-    //   state.loading = LoadingStates.ERROR;
-    // },
+    putWordAction: (state, action: PayloadAction<WordModel>) => {
+      return { ...state, loading: LoadingStates.LOADING };
+    },
+    putWordIdSuccess: (state, action: PayloadAction<WordModel>) => {
+      state.words = state.words.map(w => w.id === action.payload.id ? action.payload : w)
+      state.loading = LoadingStates.LOADED;
+    },
+    putWordIdFailed: (state, action: PayloadAction<string>) => {
+      state.error = action.payload;
+      state.loading = LoadingStates.ERROR;
+    },
   },
 });
 

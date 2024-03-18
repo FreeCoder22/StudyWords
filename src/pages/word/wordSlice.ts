@@ -5,7 +5,7 @@ import LoadingStates from "../../utils/LoadingStates";
 import { RootState } from "../../utils/store";
 
 export interface WordState {
-  words?: WordModel[] | null;
+  words?: WordModel[];
   word?: WordModel | null;
   loading: LoadingStates;
   error?: string,
@@ -13,6 +13,7 @@ export interface WordState {
 
 const initialState: WordState = {
   loading: LoadingStates.LOADING,
+  words: []
 };
 
 export const wordSlice = createSlice({

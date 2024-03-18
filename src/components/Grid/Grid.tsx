@@ -14,7 +14,7 @@ import EditToolBar from "./EditToolBar";
 import { GridProps } from "../../types/PropsType";
 import { WordModel } from "../../models/WordModel";
 
-function Grid({ words,t, key, title, postWord, putWord, loading, isLearned = false }: GridProps) {
+function Grid({ words,t, key, title, isLearned = false, loading, postWord, putWord, deleteWord }: GridProps) {
   const [rowModesModel, setRowModesModel] = useState<GridRowModesModel>({});
 
   const getWords = () =>
@@ -40,13 +40,12 @@ function Grid({ words,t, key, title, postWord, putWord, loading, isLearned = fal
       width: 100,
       cellClassName: "actions",
       getActions: ({ id }) => {
-        console.log("id", id);
-        
         return [
           <ActionsGrid
             setRowModesModel={setRowModesModel}
             rowModesModel={rowModesModel}
             id={id}
+            deleteWord={deleteWord}
           />,
         ];
       },

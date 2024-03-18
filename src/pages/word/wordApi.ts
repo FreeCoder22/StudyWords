@@ -20,14 +20,8 @@ function putWord(word: WordModel) {
   return Request.put(`/words/${word.id}`, word);
 }
 
-function deletetWords(ids: string[]) {
-  return Request.delete(`/words`, {
-    headers: {
-      Accept: "application/json; charset=utf-8",
-      "Content-Type": "application/json",
-    },
-    data: ids,
-  });
+function deletetWords(id: string) {
+  return Request.delete(`/words/${id}`);
 }
 
 export const Words = {

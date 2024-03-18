@@ -7,7 +7,7 @@ import { ActionsGridProps } from "../../types/PropsType";
 import { withTranslation } from "react-i18next";
 // import { deletetWords } from "~/utils/request";
 
-function ActionsGrid ({ id, setRowModesModel, rowModesModel, } : ActionsGridProps) {
+function ActionsGrid ({ id, setRowModesModel, rowModesModel, deleteWord } : ActionsGridProps) {
 
   const handleEditClick = (id: GridRowId) => () => {
     setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
@@ -22,22 +22,14 @@ function ActionsGrid ({ id, setRowModesModel, rowModesModel, } : ActionsGridProp
       ...rowModesModel,
       [id]: { mode: GridRowModes.View, ignoreModifications: true },
     });
-
-    // const editedRow = words.find((row) => row.id === id);
-    // if (editedRow!.isNew) {
-    //   setWords(words.filter((row) => row.id !== id));
-    // }
   };
 
-  // const handleDeleteClick =  (id: GridRowId) => async () => {
-  //   await deletetWords([id])
-  //   setWords(words.filter((row) => row.id !== id));
-  // };
+  const handleDeleteClick =  (id: GridRowId) => async () => {
+    deleteWord([id])
+  };
 
-console.log('id', id);
 
 const isInEditMode = rowModesModel[id]?.mode === GridRowModes.Edit;
-console.log('isInEditMode', isInEditMode);
 
         if (isInEditMode) {
           return [
@@ -70,7 +62,7 @@ console.log('isInEditMode', isInEditMode);
           <GridActionsCellItem
             icon={<DeleteIcon />}
             label="Delete"
-          // onClick={handleDeleteClick(id)}
+          onClick={handleDeleteClick(id)}
             color="inherit"
           />,
         ];

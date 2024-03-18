@@ -39,11 +39,11 @@ export const wordSlice = createSlice({
     postWordAction: (state, action: PayloadAction<WordModel>) => {
       return { ...state, loading: LoadingStates.LOADING };
     },
-    postWordIdSuccess: (state, action: PayloadAction<WordModel>) => {
+    postWordSuccess: (state, action: PayloadAction<WordModel>) => {
        state.words.push(action.payload)
        state.loading = LoadingStates.LOADED 
     },
-    postWordIdFailed: (state, action: PayloadAction<string>) => {
+    postWordFailed: (state, action: PayloadAction<string>) => {
       state.error = action.payload;
       state.loading = LoadingStates.ERROR;
     },
@@ -51,11 +51,24 @@ export const wordSlice = createSlice({
     putWordAction: (state, action: PayloadAction<WordModel>) => {
       return { ...state, loading: LoadingStates.LOADING };
     },
-    putWordIdSuccess: (state, action: PayloadAction<WordModel>) => {
+    putWordSuccess: (state, action: PayloadAction<WordModel>) => {
       state.words = state.words.map(w => w.id === action.payload.id ? action.payload : w)
       state.loading = LoadingStates.LOADED;
     },
-    putWordIdFailed: (state, action: PayloadAction<string>) => {
+    putWordFailed: (state, action: PayloadAction<string>) => {
+      state.error = action.payload;
+      state.loading = LoadingStates.ERROR;
+    },
+
+    deleteWordAction: (state, action: PayloadAction<string>) => {
+      return { ...state, id: action.payload, loading: LoadingStates.LOADING };
+    },
+    deleteWordSuccess: (state, action: PayloadAction<string>) => {
+      const index = state.words.findIndex(w => w.id === action.payload);
+      state.words.splice(index, 1);
+      state.loading = LoadingStates.LOADED;
+    },
+    deleteWordFailed: (state, action: PayloadAction<string>) => {
       state.error = action.payload;
       state.loading = LoadingStates.ERROR;
     },

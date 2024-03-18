@@ -20,10 +20,10 @@ function* getWordsByUserSaga(action: PayloadAction<string>) {
     try {
         let response: AxiosResponse = yield call(Words.postWord, action.payload);
         yield put(
-            wordActions.postWordIdSuccess(response.data)
+            wordActions.postWordSuccess(response.data)
         );
     } catch (err: any) {
-      yield put(wordActions.postWordIdFailed(err.response));
+      yield put(wordActions.postWordFailed(err.response));
     }
   }
   
@@ -31,10 +31,21 @@ function* getWordsByUserSaga(action: PayloadAction<string>) {
     try {
         let response: AxiosResponse = yield call(Words.putWord, action.payload);
         yield put(
-            wordActions.putWordIdSuccess(response.data)
+            wordActions.putWordSuccess(response.data)
         );
     } catch (err: any) {
-      yield put(wordActions.putWordIdFailed(err.response));
+      yield put(wordActions.putWordFailed(err.response));
+    }
+  }
+
+  function* deleteWordSaga(action: PayloadAction<string>) {
+    try {
+        let response: AxiosResponse = yield call(Words.deletetWords, action.payload);
+        yield put(
+            wordActions.deleteWordSuccess(response.data)
+        );
+    } catch (err: any) {
+      yield put(wordActions.deleteWordFailed(err.response));
     }
   }
 
@@ -42,4 +53,5 @@ function* getWordsByUserSaga(action: PayloadAction<string>) {
     yield takeLatest(wordActions.getWordsByUserIdAction.type, getWordsByUserSaga);
     yield takeLatest(wordActions.postWordAction.type, postWordSaga);
     yield takeLatest(wordActions.putWordAction.type, putWordSaga);
+    yield takeLatest(wordActions.deleteWordAction.type, deleteWordSaga);
   }

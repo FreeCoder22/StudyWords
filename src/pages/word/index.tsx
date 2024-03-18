@@ -33,6 +33,7 @@ console.log('wordReducer.words', wordReducer.words);
       loading={wordReducer.loading === LoadingStates.LOADING}
       postWord={(word: WordModel) => dispatch(wordActions.postWordAction(word))}
       putWord={(word: WordModel) => dispatch(wordActions.putWordAction(word))}
+      deleteWord={(id: string) => dispatch(wordActions.deleteWordAction(id))}
     />
   );
 };

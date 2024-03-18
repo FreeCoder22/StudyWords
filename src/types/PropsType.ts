@@ -13,8 +13,9 @@ export type GridProps = {
   title: string;
   isLearned?: boolean;
   loading: boolean;
-  postWord: any,
-  putWord: any,
+  postWord: any;
+  putWord: any;
+  deleteWord: any;
   t: TFunction;
 };
 
@@ -23,6 +24,7 @@ export type ActionsGridProps = {
   setRowModesModel: Dispatch<SetStateAction<GridRowModesModel>>;
   rowModesModel: GridRowModesModel;
   t: TFunction;
+  deleteWord: any;
 };
 
 export type EditGridProps = {

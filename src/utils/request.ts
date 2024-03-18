@@ -39,7 +39,7 @@ export default class Request {
     return axiosInstance.put(url, data as FormData, axiosConfig);
   }
 
-  static delete<DataType>(url: string, config: AxiosRequestConfig<DataType>) {
+  static delete<DataType>(url: string, config?: AxiosRequestConfig<DataType>) {
     const axiosConfig = { ...config };
 
     return axiosInstance.delete(url, axiosConfig);

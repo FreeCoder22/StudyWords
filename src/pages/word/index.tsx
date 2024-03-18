@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../utils/useStore";
 import { selectWordReducer, wordActions } from "./wordSlice";
 import LoadingStates from "../../utils/LoadingStates";
+import Grid from "../../components/Grid/Grid";
 
 const Word = (): JSX.Element => {
   document.title = "words";
@@ -14,13 +15,10 @@ const Word = (): JSX.Element => {
   if(wordReducer.loading === LoadingStates.LOADING){
     return <div>Loading...</div>
   }
-  console.log("words", wordReducer.words);
   
   return (
-<div>test</div>
+<Grid words={wordReducer.words ?? []} t={null}  key={1} title='liste'  isLearned={false}  />
   );
 };
-
-// Admin.propTypes = {};
 
 export default Word;

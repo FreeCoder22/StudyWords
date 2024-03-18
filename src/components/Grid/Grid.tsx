@@ -18,22 +18,17 @@ function Grid({ words,t, key, title, postWord, loading, isLearned = false }: Gri
   // const [loading, setLoading] = useState(false);
   const [rowModesModel, setRowModesModel] = useState<GridRowModesModel>({});
 
-  // useEffect(() => {
-  //   // if (!words) return;
-  //   // setWords(words);
-  // }, [words]);
-
-  // const processRowUpdate = async (newRow: WordModel) => {
-  //   setLoading(true);
-  //   // const updatedRow = await putWord(newRow);
-  //   // setWords(
-  //   //   words.map((row: wordModel) =>
-  //   //     row.id === newRow.id ? updatedRow.data : row
-  //   //   )
-  //   // );
-  //   setLoading(false);
-  //   return [];
-  // };
+  // // const processRowUpdate = async (newRow: WordModel) => {
+  // //   setLoading(true);
+  // //   const updatedRow = await putWord(newRow);
+  // //   setWords(
+  // //     words.map((row: wordModel) =>
+  // //       row.id === newRow.id ? updatedRow.data : row
+  // //     )
+  // //   );
+  // //   setLoading(false);
+  // //   return [];
+  // // };
 
   const handleRowModesModelChange = (newRowModesModel: GridRowModesModel) => {
     setRowModesModel(newRowModesModel);

@@ -12,7 +12,7 @@ function* getWordsByUserSaga(action: PayloadAction<string>) {
             wordActions.getWordsByUserIdSuccess(response)
         );
     } catch (err: any) {
-      yield put(wordActions.getWordsByUserIdFailed(err.response.statusText));
+      yield put(wordActions.getWordsByUserIdFailed(err.response));
     }
   }
 
@@ -23,7 +23,7 @@ function* getWordsByUserSaga(action: PayloadAction<string>) {
             wordActions.postWordIdSuccess(response.data)
         );
     } catch (err: any) {
-      yield put(wordActions.postWordIdFailed(err.response.statusText));
+      yield put(wordActions.postWordIdFailed(err.response));
     }
   }
   

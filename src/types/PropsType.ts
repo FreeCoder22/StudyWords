@@ -1,4 +1,4 @@
-import { GridRowModesModel } from "@mui/x-data-grid";
+import { GridRowId, GridRowModesModel } from "@mui/x-data-grid";
 import { TFunction } from "i18next";
 import { Dispatch, SetStateAction } from "react";
 import { WordModel } from "../models/WordModel";
@@ -16,8 +16,16 @@ export type GridProps = {
 };
 
 export type ActionsGridProps = {
-  id: string;
+  id: GridRowId;
   setRowModesModel: Dispatch<SetStateAction<GridRowModesModel>>;
   rowModesModel: GridRowModesModel;
+  t: TFunction;
+};
+
+export type EditGridProps = {
+  t: TFunction;
+};
+
+export type WordProps = {
   t: TFunction;
 };

@@ -1,0 +1,13 @@
+{
+    "translation": {
+        "addWord": "Add word",
+        "wordStudyList": "Word study list",
+        "wordLearnedList": "Word learned list",
+        "dataGrid": {
+            "word": "Word",
+            "wordTranlate": "Translate Word",
+            "isLearned": "Learned",
+            "actions": "Actions"
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "translation": {
+        "addWord": "Ajouter un mot",
+        "wordStudyList": "Liste des mots à étudier",
+        "wordLearnedList": "Liste des mots appris",
+        "dataGrid": {
+            "word": "Mot",
+            "wordTranlate": "Mot traduit",
+            "isLearned": "Appri",
+            "actions": "Actions"
+        }
+    }
+}

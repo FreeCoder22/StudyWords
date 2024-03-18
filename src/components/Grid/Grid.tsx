@@ -14,7 +14,7 @@ import EditToolBar from "./EditToolBar";
 import { GridProps } from "../../types/PropsType";
 import { WordModel } from "../../models/WordModel";
 
-function Grid({ words,t, key, title, isLearned = false }: GridProps) {
+function Grid({ words,t, key, title, postWord, loading, isLearned = false }: GridProps) {
   // const [loading, setLoading] = useState(false);
   const [rowModesModel, setRowModesModel] = useState<GridRowModesModel>({});
 
@@ -89,9 +89,9 @@ function Grid({ words,t, key, title, isLearned = false }: GridProps) {
         key={key}
         rows={getWords() ?? []}
         columns={columns}
-        slots={{ toolbar: !isLearned ? EditToolBar : null }}
+        slots={{ toolbar: !isLearned ? EditToolBar: null }}
         slotProps={{
-          toolbar: { setRowModesModel },
+          toolbar: { setRowModesModel, postWord },
         }}
         editMode="row"
         rowModesModel={rowModesModel}
@@ -99,7 +99,7 @@ function Grid({ words,t, key, title, isLearned = false }: GridProps) {
         onRowEditStop={handleRowEditStop}
         // processRowUpdate={processRowUpdate}
         onProcessRowUpdateError={(error) => console.error(error)}
-        // loading={loading}
+        loading={loading}
       />
     </>
   );

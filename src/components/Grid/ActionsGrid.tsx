@@ -6,40 +6,38 @@ import CancelIcon from '@mui/icons-material/Close';
 import { ActionsGridProps } from "../../types/PropsType";
 import { withTranslation } from "react-i18next";
 // import { deletetWords } from "~/utils/request";
-// import { useContext } from "react";
-// import { Context } from "~/context";
-// import { ActionsGridProps } from "~/types/PropsType";
-// import { wordModel } from "~/models/word";
 
 function ActionsGrid ({ id, setRowModesModel, rowModesModel, } : ActionsGridProps) {
 
-
-
-  // const handleEditClick = (id: GridRowId) => () => {
-  //   setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
-  // };
+  const handleEditClick = (id: GridRowId) => () => {
+    setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
+  };
 
   const handleSaveClick = (id: GridRowId) => () => {
     setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.View } });
+  };
+
+  const handleCancelClick = (id: GridRowId) => () => {
+    setRowModesModel({
+      ...rowModesModel,
+      [id]: { mode: GridRowModes.View, ignoreModifications: true },
+    });
+
+    // const editedRow = words.find((row) => row.id === id);
+    // if (editedRow!.isNew) {
+    //   setWords(words.filter((row) => row.id !== id));
+    // }
   };
 
   // const handleDeleteClick =  (id: GridRowId) => async () => {
   //   await deletetWords([id])
   //   setWords(words.filter((row) => row.id !== id));
   // };
-  // const handleCancelClick = (id: GridRowId) => () => {
-  //   setRowModesModel({
-  //     ...rowModesModel,
-  //     [id]: { mode: GridRowModes.View, ignoreModifications: true },
-  //   });
 
-  //   const editedRow = words.find((row) => row.id === id);
-  //   if (editedRow!.isNew) {
-  //     setWords(words.filter((row) => row.id !== id));
-  //   }
-  // };
+console.log('id', id);
 
 const isInEditMode = rowModesModel[id]?.mode === GridRowModes.Edit;
+console.log('isInEditMode', isInEditMode);
 
         if (isInEditMode) {
           return [
@@ -55,7 +53,7 @@ const isInEditMode = rowModesModel[id]?.mode === GridRowModes.Edit;
               icon={<CancelIcon />}
               label="Cancel"
               className="textPrimary"
-              // onClick={handleCancelClick(id)}
+              onClick={handleCancelClick(id)}
               color="inherit"
             />,
           ];
@@ -66,13 +64,13 @@ const isInEditMode = rowModesModel[id]?.mode === GridRowModes.Edit;
             icon={<EditIcon />}
             label="Edit"
             className="textPrimary"
-            // onClick={handleEditClick(id)}
+            onClick={handleEditClick(id)}
             color="inherit"
           />,
           <GridActionsCellItem
             icon={<DeleteIcon />}
             label="Delete"
-            // onClick={handleDeleteClick(id)}
+          // onClick={handleDeleteClick(id)}
             color="inherit"
           />,
         ];

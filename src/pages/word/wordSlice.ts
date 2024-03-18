@@ -36,7 +36,7 @@ export const wordSlice = createSlice({
       state.loading = LoadingStates.ERROR;
     },
 
-    postWordAction: (state) => {
+    postWordAction: (state, action: PayloadAction<WordModel>) => {
       return { ...state, loading: LoadingStates.LOADING };
     },
     postWordIdSuccess: (state, action: PayloadAction<WordModel>) => {

@@ -18,13 +18,6 @@ const Word = ({ t }: WordProps): JSX.Element => {
     );
   }, []);
 
-  // useEffect(() => {
-  //   if(wordReducer.loading === LoadingStates.LOADING)
-  //   dispatch(
-  //     wordActions.getWordsByUserIdAction("83916b51-9c27-4285-a4b2-cb188eb9aa4d")
-  //   );
-  // }, [wordReducer.loading]);
-
   if(wordReducer.error){
     // page 404
     return <div>{wordReducer.error}</div>
@@ -39,6 +32,7 @@ console.log('wordReducer.words', wordReducer.words);
       isLearned={false}
       loading={wordReducer.loading === LoadingStates.LOADING}
       postWord={(word: WordModel) => dispatch(wordActions.postWordAction(word))}
+      putWord={(word: WordModel) => dispatch(wordActions.putWordAction(word))}
     />
   );
 };

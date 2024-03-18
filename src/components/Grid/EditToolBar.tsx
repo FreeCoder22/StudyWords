@@ -4,7 +4,6 @@ import AddIcon from "@mui/icons-material/Add";
 import { withTranslation } from "react-i18next";
 import { v4 as uuidv4 } from "uuid";
 import { EditGridProps } from "../../types/PropsType";
-import { WordModel } from "../../models/WordModel";
 
 function EditToolbar({ t, postWord }: EditGridProps) {
   return (

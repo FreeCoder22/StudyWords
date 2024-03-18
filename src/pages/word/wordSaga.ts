@@ -27,8 +27,19 @@ function* getWordsByUserSaga(action: PayloadAction<string>) {
     }
   }
   
-  
+  function* putWordSaga(action: PayloadAction<WordModel>) {
+    try {
+        let response: AxiosResponse = yield call(Words.putWord, action.payload);
+        yield put(
+            wordActions.putWordIdSuccess(response.data)
+        );
+    } catch (err: any) {
+      yield put(wordActions.putWordIdFailed(err.response));
+    }
+  }
+
   export default function* wordSaga() {
     yield takeLatest(wordActions.getWordsByUserIdAction.type, getWordsByUserSaga);
     yield takeLatest(wordActions.postWordAction.type, postWordSaga);
+    yield takeLatest(wordActions.putWordAction.type, putWordSaga);
   }

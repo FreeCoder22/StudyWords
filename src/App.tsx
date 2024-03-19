@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import WordList from './pages/word/WordList';
 import Root from './pages/root';
+import Settings from './pages/settings/settings';
 
 function App() {
 
@@ -28,6 +29,10 @@ function App() {
         {
           path: "WordLearned",
           element: <WordLearnedList />,
+        },
+        {
+          path: "settings",
+          element: <Settings />,
         },
       ],
       

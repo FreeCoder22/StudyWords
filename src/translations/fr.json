@@ -15,6 +15,11 @@
             "wordTranlate": "Mot traduit",
             "isLearned": "Appri",
             "actions": "Actions"
+        },
+        "settings": {
+            "changeLanguage":"Changer la langue de l'application",
+            "fr": "Français",
+            "en": "Anglais"
         }
     }
 }

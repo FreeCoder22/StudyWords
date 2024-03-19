@@ -1,8 +1,15 @@
 {
     "translation": {
+        "title": "Etude de mots",
         "addWord": "Ajouter un mot",
         "wordStudyList": "Liste des mots à étudier",
         "wordLearnedList": "Liste des mots appris",
+        "navbarWeb":{
+            "home": "Accueil",
+            "wordStudy": "Liste des mots à étudier",
+            "wordLearned": "Liste des mots appris",
+            "settings": "Paramètres"
+        },
         "dataGrid": {
             "word": "Mot",
             "wordTranlate": "Mot traduit",

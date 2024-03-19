@@ -15,6 +15,11 @@
             "wordTranlate": "Translate Word",
             "isLearned": "Learned",
             "actions": "Actions"
+        },
+        "settings": {
+            "changeLanguage":"Change application language",
+            "fr": "French",
+            "en": "English"
         }
     }
 }

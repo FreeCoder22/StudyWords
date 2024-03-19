@@ -7,7 +7,7 @@ import { WordProps } from "../../types/PropsType";
 import { selectWordReducer, wordActions } from "./wordSlice";
 import { WordModel } from "../../models/WordModel";
 
-const Word = ({ t }: WordProps): JSX.Element => {
+const WordLearnedList = ({ t }: WordProps): JSX.Element => {
   document.title = "words";
   const dispatch = useAppDispatch();
   const wordReducer = useAppSelector(selectWordReducer);
@@ -22,14 +22,12 @@ const Word = ({ t }: WordProps): JSX.Element => {
     // page 404
     return <div>{wordReducer.error}</div>
   }
-console.log('wordReducer.words', wordReducer.words);
-
   return (
     <Grid
       words={wordReducer.words ?? []}
       key={1}
       title={t("wordStudyList")}
-      isLearned={false}
+      isLearned={true}
       loading={wordReducer.loading === LoadingStates.LOADING}
       postWord={(word: WordModel) => dispatch(wordActions.postWordAction(word))}
       putWord={(word: WordModel) => dispatch(wordActions.putWordAction(word))}
@@ -38,4 +36,4 @@ console.log('wordReducer.words', wordReducer.words);
   );
 };
 
-export default withTranslation()(Word);
+export default withTranslation()(WordLearnedList);

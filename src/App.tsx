@@ -1,6 +1,5 @@
 import './App.css'
 import ErrorPage from './pages/error-page';
-import Root from './pages/root';
 import WordLearnedList from './pages/word/WordLearnedList';
 
 import {
@@ -8,6 +7,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import WordList from './pages/word/WordList';
+import Root from './pages/root';
 
 function App() {
 

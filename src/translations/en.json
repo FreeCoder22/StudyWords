@@ -1,8 +1,15 @@
 {
     "translation": {
+        "title": "Study words",
         "addWord": "Add word",
         "wordStudyList": "Word study list",
         "wordLearnedList": "Word learned list",
+        "navbarWeb":{
+            "home": "Home",
+            "wordStudy": "Word study",
+            "wordLearned": "Word learned",
+            "settings": "Settings"
+        },
         "dataGrid": {
             "word": "Word",
             "wordTranlate": "Translate Word",

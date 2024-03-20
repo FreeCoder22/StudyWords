@@ -65,7 +65,14 @@ function Root(props: Props) {
             <ListItemText primary={t("navbarWeb.wordStudy")} />
           </ListItemButton>
         </ListItem>
-
+        <ListItem key={1} disablePadding>
+          <ListItemButton onClick={() => navigate("/RandomWord")}>
+            <ListItemIcon>
+              <InboxIcon />
+            </ListItemIcon>
+            <ListItemText primary={t("navbarWeb.randomWord")} />
+          </ListItemButton>
+        </ListItem>
         <ListItem key={2} disablePadding>
           <ListItemButton onClick={() => navigate("/wordLearned")}>
             <ListItemIcon>
@@ -165,9 +172,9 @@ function Root(props: Props) {
         }}
       >
         <Toolbar />
-        <div id="detail">
-          <Outlet />
-        </div>
+          <div id="detail">
+            <Outlet />
+          </div>
       </Box>
     </Box>
   );

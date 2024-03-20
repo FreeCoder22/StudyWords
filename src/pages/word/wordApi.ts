@@ -5,6 +5,10 @@ async function getWordsByUserId(userId: string): Promise<WordModel[]> {
   const response = await Request.get(`/words/user/${userId}`);
   return response.data;
 }
+async function getWordsRandomByUserId(userId: string): Promise<WordModel[]> {
+  const response = await Request.get(`/words/user/random/${userId}`);
+  return response.data;
+}
 function getWords() {
   return Request.get("/words");
 }
@@ -26,6 +30,7 @@ function deletetWords(id: string) {
 
 export const Words = {
   getWordsByUserId,
+  getWordsRandomByUserId,
   getWords,
   getWord,
   postWord,

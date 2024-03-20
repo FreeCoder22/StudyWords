@@ -35,3 +35,7 @@ export type EditGridProps = {
 export type WordProps = {
   t: TFunction;
 };
+
+export type RandomWordProps = {
+  t: TFunction;
+};

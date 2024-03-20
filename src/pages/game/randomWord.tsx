@@ -36,15 +36,12 @@ const RandomWord = ({ t }: RandomWordProps) => {
       )
     );
     return () => {
-      dispatch(wordActions.cleanGameAction())
-    }
+      dispatch(wordActions.cleanGameAction());
+    };
   }, []);
-  
+
   useEffect(() => {
-    if (
-      wordCount === 0
-    )
-      setWordCount(wordReducer.wordsRandom.length);
+    if (wordCount === 0) setWordCount(wordReducer.wordsRandom.length);
   }, [wordReducer.wordsRandom]);
 
   useEffect(() => {
@@ -74,14 +71,12 @@ const RandomWord = ({ t }: RandomWordProps) => {
         <Typography variant="h4">
           {correctWordCounter} / {wordCount}
         </Typography>
-        <Button onClick={() => window.document.location.reload()} >{t("randomWord.restart")}</Button>
+        <Button onClick={() => window.document.location.reload()}>
+          {t("randomWord.restart")}
+        </Button>
       </>
     );
   }
-
-  if (wordReducer.isGameFinish) return GameFinishRender();
-  if (wordReducer.loading === LoadingStates.LOADING || !wordReducer.wordRandom)
-    return <Loader />;
 
   function CardRender() {
     if (correction) {
@@ -106,6 +101,12 @@ const RandomWord = ({ t }: RandomWordProps) => {
         </>
       );
     }
+
+    if (wordReducer.isGameFinish) return GameFinishRender();
+
+    if (wordReducer.loading === LoadingStates.LOADING || !wordReducer.wordRandom)
+      return <Loader />;
+
     return (
       <>
         <Stack>

@@ -3,11 +3,10 @@ import { TFunction } from "i18next";
 import { Dispatch, SetStateAction } from "react";
 import { WordModel } from "../models/WordModel";
 
-export type IndexProps = {
-  t: TFunction;
+export interface IndexProps extends I18nProps  {
 };
 
-export type GridProps = {
+export interface GridProps extends I18nProps {
   words: WordModel[] | null;
   key: number;
   title: string;
@@ -16,26 +15,31 @@ export type GridProps = {
   postWord: any;
   putWord: any;
   deleteWord: any;
-  t: TFunction;
 };
 
-export type ActionsGridProps = {
+export interface ActionsGridProps extends I18nProps  {
   id: GridRowId;
   setRowModesModel: Dispatch<SetStateAction<GridRowModesModel>>;
   rowModesModel: GridRowModesModel;
-  t: TFunction;
   deleteWord: any;
 };
 
-export type EditGridProps = {
-  t: TFunction;
+export interface EditGridProps extends I18nProps {
   postWord: any;
 };
 
-export type WordProps = {
-  t: TFunction;
+export interface WordProps extends I18nProps {
 };
 
-export type RandomWordProps = {
-  t: TFunction;
+export interface RandomWordProps extends I18nProps {
+};
+
+export interface DrawerProps extends I18nProps {
+};
+
+export interface SettingsProps extends I18nProps {
+};
+
+export interface I18nProps {
+ t : TFunction;
 };

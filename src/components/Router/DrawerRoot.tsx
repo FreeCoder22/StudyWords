@@ -5,27 +5,27 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Outlet, useNavigate } from "react-router-dom";
 import { withTranslation } from "react-i18next";
+import { DrawerProps } from "../../types/PropsType";
+import HomeIcon from '@mui/icons-material/Home';
+import ListIcon from '@mui/icons-material/List';
+import PlaylistAddCheckIcon from '@mui/icons-material/PlaylistAddCheck';
+import GamesIcon from '@mui/icons-material/Games';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 const drawerWidth = 240;
 
-interface Props {
-  window?: () => Window;
-}
 
-function Root(props: Props) {
-  const { window, t } = props;
+function DrawerRoot({ t }: DrawerProps) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [isClosing, setIsClosing] = React.useState(false);
   const navigate = useNavigate();
@@ -52,42 +52,43 @@ function Root(props: Props) {
         <ListItem key={1} disablePadding>
           <ListItemButton onClick={() => navigate("/")}>
             <ListItemIcon>
-              <InboxIcon />
+              <HomeIcon />
             </ListItemIcon>
             <ListItemText primary={t("navbarWeb.home")} />
           </ListItemButton>
         </ListItem>
-        <ListItem key={1} disablePadding>
+        <ListItem key={2} disablePadding>
           <ListItemButton onClick={() => navigate("/Word")}>
             <ListItemIcon>
-              <InboxIcon />
+              <ListIcon />
             </ListItemIcon>
             <ListItemText primary={t("navbarWeb.wordStudy")} />
           </ListItemButton>
         </ListItem>
-        <ListItem key={1} disablePadding>
-          <ListItemButton onClick={() => navigate("/RandomWord")}>
-            <ListItemIcon>
-              <InboxIcon />
-            </ListItemIcon>
-            <ListItemText primary={t("navbarWeb.randomWord")} />
-          </ListItemButton>
-        </ListItem>
-        <ListItem key={2} disablePadding>
+        <ListItem key={3} disablePadding>
           <ListItemButton onClick={() => navigate("/wordLearned")}>
             <ListItemIcon>
-              <MailIcon />
+              <PlaylistAddCheckIcon />
             </ListItemIcon>
             <ListItemText primary={t("navbarWeb.wordLearned")} />
           </ListItemButton>
         </ListItem>
+        <ListItem key={4} disablePadding>
+          <ListItemButton onClick={() => navigate("/RandomWord")}>
+            <ListItemIcon>
+              <GamesIcon />
+            </ListItemIcon>
+            <ListItemText primary={t("navbarWeb.randomWord")} />
+          </ListItemButton>
+        </ListItem>
+
       </List>
       <Divider />
       <List>
-        <ListItem key={2} disablePadding>
+        <ListItem key={5} disablePadding>
           <ListItemButton onClick={() => navigate("/settings")}>
             <ListItemIcon>
-              <MailIcon />
+              <SettingsIcon />
             </ListItemIcon>
             <ListItemText primary={t("navbarWeb.settings")} />
           </ListItemButton>
@@ -96,9 +97,6 @@ function Root(props: Props) {
     </div>
   );
 
-  // Remove this const when copying and pasting into your project.
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -131,7 +129,6 @@ function Root(props: Props) {
         aria-label="mailbox folders"
       >
         <Drawer
-          container={container}
           variant="temporary"
           open={mobileOpen}
           onTransitionEnd={handleDrawerTransitionEnd}
@@ -180,4 +177,4 @@ function Root(props: Props) {
   );
 }
 
-export default withTranslation()(Root);
+export default withTranslation()(DrawerRoot);

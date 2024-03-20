@@ -8,6 +8,7 @@
             "home": "Accueil",
             "wordStudy": "Liste des mots à étudier",
             "wordLearned": "Liste des mots appris",
+            "randomWord": "Jeu",
             "settings": "Paramètres"
         },
         "dataGrid": {
@@ -20,6 +21,13 @@
             "changeLanguage":"Changer la langue de l'application",
             "fr": "Français",
             "en": "Anglais"
+        },
+        "randomWord": {
+            "title": "Jeu des mots hasard",
+            "gameFinish":"Fin du jeu",
+            "submit": "Valider",
+            "nextWord": "Mot suivant",
+            "restart": "Recommencer"
         }
     }
 }

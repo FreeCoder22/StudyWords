@@ -8,6 +8,7 @@
             "home": "Home",
             "wordStudy": "Word study",
             "wordLearned": "Word learned",
+            "randomWord": "Game",
             "settings": "Settings"
         },
         "dataGrid": {
@@ -20,6 +21,13 @@
             "changeLanguage":"Change application language",
             "fr": "French",
             "en": "English"
+        },
+        "randomWord": {
+            "title": "Random Word Game",
+            "gameFinish":"Game finish",
+            "submit": "Submit",
+            "nextWord": "Next word",
+            "restart": "Restart"
         }
     }
 }

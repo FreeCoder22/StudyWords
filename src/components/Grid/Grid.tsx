@@ -2,9 +2,7 @@ import { Checkbox } from "@mui/material";
 import {
   DataGrid,
   GridColDef,
-  GridEventListener,
   GridRenderCellParams,
-  GridRowEditStopReasons,
   GridRowModesModel,
 } from "@mui/x-data-grid";
 import { withTranslation } from "react-i18next";

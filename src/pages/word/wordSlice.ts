@@ -6,14 +6,19 @@ import { RootState } from "../../utils/store";
 
 export interface WordState {
   words: WordModel[];
+  wordsRandom: WordModel[];
   word?: WordModel | null;
+  wordRandom?: WordModel;
   loading: LoadingStates;
+  isGameFinish?: boolean;
   error?: string;
 }
 
 const initialState: WordState = {
   loading: LoadingStates.LOADING,
   words: [],
+  wordsRandom: [],
+  isGameFinish: false,
 };
 
 export const wordSlice = createSlice({
@@ -36,6 +41,44 @@ export const wordSlice = createSlice({
       state.loading = LoadingStates.ERROR;
     },
 
+    getWordsRandomByUserIdAction: (state, action: PayloadAction<string>) => {
+      return {
+        ...state,
+        userId: action.payload,
+        loading: LoadingStates.LOADING,
+      };
+    },
+    getWordsRandomByUserIdSuccess: (state, action: PayloadAction<WordModel[]>) => {
+      state.wordsRandom = action.payload;
+      state.loading = LoadingStates.LOADED;
+    },
+    getWordsRandomByUserIdFailed: (state, action: PayloadAction<string>) => {
+      state.error = action.payload;
+      state.loading = LoadingStates.ERROR;
+    },
+    
+    getWordRandomAction: (state) => {
+      if (!state.wordsRandom || state.wordsRandom.length <= 0) return;
+
+    // debugger
+    const word =
+    state.wordsRandom[
+        Math.floor(Math.random() * state.wordsRandom.length)
+      ];
+    state.wordRandom = word;
+    },
+    removeWordRandomAction: (state, action: PayloadAction<string>) => {
+      const index = state.wordsRandom.findIndex((w) => w.id === action.payload);
+      state.wordsRandom?.splice(index, 1);
+      state.wordRandom = undefined;
+      if(state.wordsRandom.length === 0)
+      state.isGameFinish = true;
+
+    } ,
+    WordRandomAction: (state, action: PayloadAction<string>) => {
+      const index = state.wordsRandom.findIndex((w) => w.id === action.payload);
+      state.wordsRandom?.splice(index, 1);
+    } ,
     postWordAction: (state, action: PayloadAction<WordModel>) => {
       return { ...state, loading: LoadingStates.LOADING };
     },
@@ -48,7 +91,7 @@ export const wordSlice = createSlice({
       state.loading = LoadingStates.ERROR;
     },
 
-    putWordAction: (state, action: PayloadAction<WordModel>) => {
+    putWordAction: (state) => {
       return { ...state, loading: LoadingStates.LOADING };
     },
     putWordSuccess: (state, action: PayloadAction<WordModel>) => {
@@ -72,6 +115,11 @@ export const wordSlice = createSlice({
       state.error = action.payload;
       state.loading = LoadingStates.ERROR;
     },
+
+    cleanGameAction: (state) => {
+      state.isGameFinish = false
+    },
+    
   },
 });
 

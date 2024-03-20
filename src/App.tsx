@@ -9,6 +9,7 @@ import {
 import WordList from './pages/word/WordList';
 import Root from './pages/root';
 import Settings from './pages/settings/settings';
+import RandomWord from './pages/game/randomWord';
 
 function App() {
 
@@ -27,8 +28,12 @@ function App() {
           element: <WordList />,
         },
         {
-          path: "WordLearned",
+          path: "wordLearned",
           element: <WordLearnedList />,
+        },
+        {
+          path: "randomWord",
+          element: <RandomWord />,
         },
         {
           path: "settings",

@@ -18,6 +18,7 @@ import { RandomWordProps } from "../../types/PropsType";
 import InfoIcon from "@mui/icons-material/Info";
 import CloseIcon from "@mui/icons-material/Close";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
+import useCurrentUser from "../../hooks/useCurrentUser";
 
 const RandomWord = ({ t }: RandomWordProps) => {
   const dispatch = useAppDispatch();
@@ -28,17 +29,19 @@ const RandomWord = ({ t }: RandomWordProps) => {
   const [correction, setCorrection] = useState<WordModel | null>(null);
   const [wordCount, setWordCount] = useState(0);
   const [correctWordCounter, setCorrectWordCounter] = useState(0);
+  const currentUser = useCurrentUser()
 
   useEffect(() => {
+    if(currentUser)
     dispatch(
       wordActions.getWordsRandomByUserIdAction(
-        "83916b51-9c27-4285-a4b2-cb188eb9aa4d"
+        currentUser.id
       )
     );
     return () => {
       dispatch(wordActions.cleanGameAction());
     };
-  }, []);
+  }, [currentUser]);
 
   useEffect(() => {
     if (wordCount === 0) setWordCount(wordReducer.wordsRandom.length);

@@ -3,7 +3,7 @@ import createSagaMiddleware from 'redux-saga';
 import wordReducer from '../pages/word/wordSlice'
 import saga from './saga';
 
-let sagaMiddleware = createSagaMiddleware();
+const sagaMiddleware = createSagaMiddleware();
 
 export const store = configureStore({
   reducer: {wordReducer},

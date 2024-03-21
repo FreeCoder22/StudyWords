@@ -80,7 +80,7 @@ export const wordSlice = createSlice({
       state.wordsRandom?.splice(index, 1);
     } ,
     postWordAction: (state, action: PayloadAction<WordModel>) => {
-      return { ...state, loading: LoadingStates.LOADING };
+      return { ...state, word: action.payload, loading: LoadingStates.LOADING };
     },
     postWordSuccess: (state, action: PayloadAction<WordModel>) => {
        state.words.push(action.payload)
@@ -91,8 +91,8 @@ export const wordSlice = createSlice({
       state.loading = LoadingStates.ERROR;
     },
 
-    putWordAction: (state) => {
-      return { ...state, loading: LoadingStates.LOADING };
+    putWordAction: (state, action: PayloadAction<WordModel>) => {
+      return { ...state, word: action.payload, loading: LoadingStates.LOADING };
     },
     putWordSuccess: (state, action: PayloadAction<WordModel>) => {
       state.words = state.words.map(w => w.id === action.payload.id ? action.payload : w)

@@ -4,6 +4,7 @@ import {
   GridColDef,
   GridRenderCellParams,
   GridRowModesModel,
+  GridValidRowModel,
 } from "@mui/x-data-grid";
 import { withTranslation } from "react-i18next";
 import ActionsGrid from "./ActionsGrid";
@@ -27,7 +28,7 @@ function Grid({ words,t, key, title, isLearned = false, loading, postWord, putWo
       width: 150,
       type: "boolean",
       editable: true,
-      renderCell: (params: GridRenderCellParams<any, boolean>) => {
+      renderCell: (params: GridRenderCellParams<GridValidRowModel, boolean>) => {
         return <Checkbox checked={params?.value} />;
       },
     },

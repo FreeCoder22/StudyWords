@@ -1,3 +1,4 @@
+  /* eslint-disable  @typescript-eslint/no-explicit-any */
 import axios, { AxiosRequestConfig } from "axios";
 
 export const axiosInstance = axios.create({
@@ -11,7 +12,7 @@ export default class Request {
   static defaults() {
     return axiosInstance.defaults;
   }
-
+// @typescript-eslint/no-explicit-any
   static get<T = any>(url: string, config: AxiosRequestConfig = {}) {
     const axiosConfig = { ...config };
     return axiosInstance.get<T>(url, axiosConfig);

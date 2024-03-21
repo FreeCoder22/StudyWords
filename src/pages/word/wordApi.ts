@@ -28,6 +28,10 @@ function deletetWords(id: string) {
   return Request.delete(`/words/${id}`);
 }
 
+function getUserByEmail(email: string) {
+  return Request.get(`/users/email/${email}`);
+}
+
 export const Words = {
   getWordsByUserId,
   getWordsRandomByUserId,
@@ -36,4 +40,5 @@ export const Words = {
   postWord,
   putWord,
   deletetWords,
+  getUserByEmail,
 };

@@ -6,17 +6,21 @@ import Grid from "../../components/Grid/Grid";
 import { WordProps } from "../../types/PropsType";
 import { selectWordReducer, wordActions } from "./wordSlice";
 import { WordModel } from "../../models/WordModel";
+import useCurrentUser from "../../hooks/useCurrentUser";
 
 const WordList = ({ t }: WordProps): JSX.Element => {
   document.title = "words";
   const dispatch = useAppDispatch();
   const wordReducer = useAppSelector(selectWordReducer);
-
+  const currentUser = useCurrentUser()
+  
   useEffect(() => {
+    
+    if(currentUser)
     dispatch(
-      wordActions.getWordsByUserIdAction("83916b51-9c27-4285-a4b2-cb188eb9aa4d")
+      wordActions.getWordsByUserIdAction(currentUser.id)
     );
-  }, []);
+  }, [currentUser]);
 
   if(wordReducer.error){
     // page 404

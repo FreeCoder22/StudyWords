@@ -39,8 +39,6 @@ function* getWordsByUserSaga(action: PayloadAction<string>) {
     }
   }
   function* putWordSaga(action: PayloadAction<WordModel>) {
-    console.log('putWordSaga action.payload', action.payload);
-    
     try {
       const response: AxiosResponse = yield call(Words.putWord, action.payload);
         yield put(

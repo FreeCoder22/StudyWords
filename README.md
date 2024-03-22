@@ -8,7 +8,7 @@ This application assists users in creating a list of English words and automatic
 
 - **React**: Used to build the user interface of the application.
 - **Redux Saga**: Used to manage the application's store and side effects, such as API calls.
-- **DERL**: Used for word translation.
+- **DeepL**: Used for word translation in API.
 - **i18n**: Used for translating the application's interface.
 - **MUI**: Used for the application's design.
 - **Axios**: Used for making API calls.

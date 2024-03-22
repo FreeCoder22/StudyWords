@@ -1,35 +1,35 @@
-# Nom de votre application
+# Study words
 
-## Description du projet
+## Project Description
 
-Cette application aide les utilisateurs à créer une liste de mots en anglais et à les traduire automatiquement en français. Les utilisateurs peuvent étudier cette liste et, une fois qu'ils ont appris les mots, ils peuvent les transférer dans une autre liste de mots appris. L'application comprend également un petit jeu pour s'exercer aux traductions.
+This application assists users in creating a list of English words and automatically translating them into French. Users can study this list, and once they've learned the words, they can transfer them to another list of learned words. The application also includes a small game for practicing translations.
 
-## Technologies utilisées
+## Technologies Used
 
-- **React** : Utilisé pour construire l'interface utilisateur de l'application.
-- **Redux Saga** : Utilisé pour gérer le store de l'application et les effets secondaires, comme les appels d'API.
-- **DERL** : Utilisé pour la traduction des mots.
-- **i18n** : Utilisé pour la traduction de l'interface de l'application.
-- **MUI** : Utilisé pour le design de l'application.
-- **Axios** : Utilisé pour faire des appels API.
-- **Vite** : Utilisé pour le lancement de l'application.
-- **Vitest** : Utilisé pour les tests unitaires.
+- **React**: Used to build the user interface of the application.
+- **Redux Saga**: Used to manage the application's store and side effects, such as API calls.
+- **DERL**: Used for word translation.
+- **i18n**: Used for translating the application's interface.
+- **MUI**: Used for the application's design.
+- **Axios**: Used for making API calls.
+- **Vite**: Used for launching the application.
+- **Vitest**: Used for unit testing.
 
-## Comment ça marche
+## How It Works
 
-Lorsqu'un utilisateur ajoute un mot à la liste, l'application fait un appel API pour traduire ce mot en français. Les utilisateurs peuvent également jouer à un petit jeu pour s'exercer aux traductions.
+When a user adds a word to the list, the application makes an API call to translate this word into French. Users can also play a small game to practice translations.
 
-## Installation et utilisation
+## Installation and Usage
 
-1. Clonez ce dépôt sur votre machine locale.
-2. Installez les dépendances en exécutant `npm install`.
-3. Lancez l'application en exécutant `npm run start`.
-4. Ouvrez votre navigateur et accédez à `http://localhost:5173`.
+1. Clone this repository on your local machine.
+2. Install the dependencies by running `npm install`.
+3. Launch the application by running `npm run start`.
+4. Open your browser and go to `http://localhost:5173`.
 
 ## Contribution
 
-Si vous souhaitez contribuer à ce projet, veuillez créer une issue ou une pull request.
+If you wish to contribute to this project, please create an issue or a pull request.
 
-## Licence
+## License
 
-Ce projet est sous licence MIT.
+This project is licensed under the MIT license.

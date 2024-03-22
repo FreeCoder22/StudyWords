@@ -1,30 +1,35 @@
-# React + TypeScript + Vite
+# Nom de votre application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description du projet
 
-Currently, two official plugins are available:
+Cette application aide les utilisateurs à créer une liste de mots en anglais et à les traduire automatiquement en français. Les utilisateurs peuvent étudier cette liste et, une fois qu'ils ont appris les mots, ils peuvent les transférer dans une autre liste de mots appris. L'application comprend également un petit jeu pour s'exercer aux traductions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies utilisées
 
-## Expanding the ESLint configuration
+- **React** : Utilisé pour construire l'interface utilisateur de l'application.
+- **Redux Saga** : Utilisé pour gérer le store de l'application et les effets secondaires, comme les appels d'API.
+- **DERL** : Utilisé pour la traduction des mots.
+- **i18n** : Utilisé pour la traduction de l'interface de l'application.
+- **MUI** : Utilisé pour le design de l'application.
+- **Axios** : Utilisé pour faire des appels API.
+- **Vite** : Utilisé pour le lancement de l'application.
+- **Vitest** : Utilisé pour les tests unitaires.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Comment ça marche
 
-- Configure the top-level `parserOptions` property like this:
+Lorsqu'un utilisateur ajoute un mot à la liste, l'application fait un appel API pour traduire ce mot en français. Les utilisateurs peuvent également jouer à un petit jeu pour s'exercer aux traductions.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Installation et utilisation
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. Clonez ce dépôt sur votre machine locale.
+2. Installez les dépendances en exécutant `npm install`.
+3. Lancez l'application en exécutant `npm run start`.
+4. Ouvrez votre navigateur et accédez à `http://localhost:5173`.
+
+## Contribution
+
+Si vous souhaitez contribuer à ce projet, veuillez créer une issue ou une pull request.
+
+## Licence
+
+Ce projet est sous licence MIT.

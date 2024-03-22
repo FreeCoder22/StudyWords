@@ -22,14 +22,12 @@ When a user adds a word to the list, the application makes an API call to transl
 ## Installation and Usage
 
 1. Clone this repository on your local machine.
-2. Install the dependencies by running `npm install`.
-3. Launch the application by running `npm run start`.
-4. Open your browser and go to `http://localhost:5173`.
-
-## Contribution
-
-If you wish to contribute to this project, please create an issue or a pull request.
+2. Clone repository https://github.com/max8392/StudyWordsApi
+3. Create file env.local in root projet. Add variabble VITE_API_URL=study-words-api-url
+4. Install the dependencies by running `npm install`.
+5. Launch the application by running `npm run start`.
+6. Open your browser and go to `http://localhost:5173`.
 
 ## License
 
-This project is licensed under the MIT license.
+Open Source
